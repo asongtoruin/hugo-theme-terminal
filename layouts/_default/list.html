@@ -14,11 +14,19 @@
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
     <div class="post-meta">
-      <span class="post-date">
-        {{ .Date.Format "2006-01-02" }}
-      </span>
-      {{ with .Params.Author }}<span class="post-author">::
-        {{ . }}</span>{{ end }}
+        {{ if .Params.Date }}
+        <span class="post-date">
+          {{ .Date.Format "2006-01-02" }}
+        </span>
+        {{ end }}
+        {{ with .Params.Author }}
+        <span class="post-author">::
+          {{ . }}
+        </span>
+        {{ end }}
+        <span class='post-reading-time'>::
+          {{ .ReadingTime}} minute{{if gt .ReadingTime 1 }}s{{ end }}
+        </span>
     </div>
 
     {{ if .Params.tags }}
