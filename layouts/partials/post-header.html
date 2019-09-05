@@ -1,0 +1,31 @@
+<h1 class="post-title">
+  <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+<div class="post-meta">
+    {{ if .Params.Date }}
+    <span class="post-date">
+      <i class="fas fa-calendar-day"></i> {{ .Date.Format "2006-01-02" }}
+    </span>
+    {{ end }}
+    {{ with .Params.Author }}
+    <span class="post-author">::
+      <i class="fas fa-user"></i> {{ . }}
+    </span>
+    {{ end }}
+    <span class='post-reading-time'>::
+     <i class="fas fa-clock"></i> {{ .ReadingTime}} minute{{if gt .ReadingTime 1 }}s{{ end }}
+    </span>
+</div>
+
+{{ if .Params.tags }}
+<span class="post-tags">
+  {{ range .Params.tags }}
+  #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+    {{- . -}}
+  </a>&nbsp;
+  {{ end }}
+</span>
+{{ end }}
+
+{{ with .Params.Cover }}
+<img src="{{ . | absURL }}" class="post-cover" />
+{{ end }}
