@@ -12,15 +12,21 @@
 
 <div class="{{- $container -}}">
 
-  {{ partial "header.html" . }}
+  {{if .IsHome }}
+    {{ partial "splash-header.html" . }}
+  {{ else }}
+    {{ partial "header.html" . }}
+  {{ end }}
 
   <div class="content">
     {{ block "main" . }}
     {{ end }}
   </div>
 
-  {{ block "footer" . }}
-    {{ partial "footer.html" . }}
+  {{if not .IsHome }}
+    {{ block "footer" . }}
+      {{ partial "footer.html" . }}
+    {{ end }}
   {{ end }}
 </div>
 
