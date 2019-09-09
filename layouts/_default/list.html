@@ -12,6 +12,13 @@
   {{ range $paginator.Pages }}
   <div class="post on-list">
     {{ partial "post-header.html" .}}
+    {{ with .Params.Cover }}
+      <div class="img-outer">
+        <div class="hover-highlight">
+          <img src="{{ . | absURL }}">
+        </div>
+      </div>
+    {{ end }}
 
     <div class="post-content">
       {{ if .Params.showFullContent }}

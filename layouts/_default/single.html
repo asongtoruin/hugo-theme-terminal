@@ -1,7 +1,11 @@
 {{ define "main" }}
 <div class="post">
   {{ partial "post-header.html" .}}
-
+  {{ with .Params.Cover }}
+  <div class="img-outer">
+    <img src="{{ . | absURL }}">
+  </div>
+  {{ end }}
   <div class="post-content">
     {{ .Content }}
   </div>
