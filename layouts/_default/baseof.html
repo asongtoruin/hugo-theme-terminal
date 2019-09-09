@@ -8,9 +8,13 @@
   {{ partial "head.html" . }}
 </head>
 <body class="">
-{{ $container := cond $.Site.Params.FullWidthTheme "container full" (cond $.Site.Params.CenterTheme "container center" "container") }}
 
+{{ if .IsHome }}
+  <div class="container full">
+{{else}}
+{{ $container := cond $.Site.Params.FullWidthTheme "container full" (cond $.Site.Params.CenterTheme "container center" "container") }}
 <div class="{{- $container -}}">
+{{ end }}
 
   {{if .IsHome }}
     {{ partial "splash-header.html" . }}
