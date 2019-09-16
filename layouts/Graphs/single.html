@@ -3,7 +3,9 @@
   {{ partial "post-header.html" .}}
   {{ with .Params.Image }}
   <div class="img-outer">
+    <a href="{{ . | absURL }}" target="_blank">
       <img class="scaled-img" src="{{ . | absURL }}">
+    </a>
   </div>
   {{ end }}
   <div class="post-content">
