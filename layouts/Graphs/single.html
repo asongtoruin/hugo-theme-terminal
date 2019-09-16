@@ -3,7 +3,7 @@
   {{ partial "post-header.html" .}}
   {{ with .Params.Image }}
   <div class="img-outer">
-    <img src="{{ . | absURL }}">
+      <img class="scaled-img" src="{{ . | absURL }}">
   </div>
   {{ end }}
   <div class="post-content">

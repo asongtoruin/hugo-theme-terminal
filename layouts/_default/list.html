@@ -15,7 +15,7 @@
     {{ with .Params.Cover }}
       <div class="img-outer">
         <div class="hover-highlight">
-          <img src="{{ . | absURL }}">
+          <img class="scaled-img" src="{{ . | absURL }}">
         </div>
       </div>
     {{ end }}
