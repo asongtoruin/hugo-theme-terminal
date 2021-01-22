@@ -5,7 +5,7 @@
     {{ if .IsHome }}
       {{ $PageContext = .Site }}
     {{ end }}
-    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" "Graphs") 9}}
+    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" "graphs") 9}}
 
     {{ range $paginator.Pages }}
       <a class="hidden-link" href="{{.RelPermalink}}">
